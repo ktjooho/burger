@@ -9,5 +9,7 @@ def index(request):
     #return render(request,'index.html')
 def intro(request):
     return render(request,'angus/intro.html')
+def game(request):
+    return render(request,'angus/game.html')
 
 # Create your views here.
