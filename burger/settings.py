@@ -31,13 +31,16 @@ ALLOWED_HOSTS = []
 # Application definition
 
 INSTALLED_APPS = [
+    'angus.apps.AngusConfig',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'angus',
+
+    #'angus',
+
 ]
 
 MIDDLEWARE = [
@@ -49,6 +52,9 @@ MIDDLEWARE = [
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]
+
+LOGIN_REDIRECT_URL = '/angus'
+LOGIN_URL = '/angus/login'
 
 ROOT_URLCONF = 'burger.urls'
 
@@ -81,6 +87,7 @@ DATABASES = {
         'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
     }
 }
+
 
 
 # Password validation
@@ -124,3 +131,6 @@ STATIC_URL = '/static/'
 STATICFILES_DIRS = (
     os.path.join(BASE_DIR,"static_in_pro","our_static"),
 )
+# Media
+MEDIA_ROOT = os.path.join(BASE_DIR,"media")
+MEDIA_URL = '/media/'

@@ -50,14 +50,18 @@
                 <ul class="nav masthead-nav">
                   <li class="active"><a href="#">Home</a></li>
                   <li><a href="{%  url 'angus:game' %} ">요리전 몸 풀기</a></li>
-                  <li><a href="#">Contact</a></li>
+                    {%  if is_authenticated %}
+                        <li><a href="{%  url 'angus:logout' %}" data-role="button" data-inline="true" data-rel="dialog" data-transition="pop">Logout</a></li>
+                    {% else %}
+                        <li><a href="{%  url 'angus:login' %}" data-role="button" data-inline="true" data-rel="dialog" data-transition="pop">Login</a></li>
+                    {%  endif %}
                 </ul>
               </nav>
             </div>
           </div>
 
           <div class="inner cover">
-            <h1 class="cover-heading">맛있는 흑우 버거를 먹어봅시다</h1>
+            <h1 class="cover-heading">{{ user }}님, 맛있는 흑우 버거를 먹어봅시다</h1>
             <p class="lead"> 맛있는 수제 햄버거</p>
             <p class="lead">
               <a href=" {%  url 'angus:intro' %}" class="btn btn-lg btn-default">만들어보기</a>
@@ -68,11 +72,8 @@
               <p>Cover template for <a href="http://getbootstrap.com">Bootstrap</a>, by <a href="https://twitter.com/mdo">@mdo</a>.</p>
             </div>
           </div>
-
         </div>
-
       </div>
-
     </div>
 
     <!-- Bootstrap core JavaScript
@@ -85,5 +86,11 @@
     <script src="{% static 'js/bootstrap.min.js'  %}"></script>
     <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
     <script src="{% static 'js/ie10-viewport-bug-workaround.js' %}"></script>
+    <div id="dialog" title="Sign-up">
+        Hi<br>
+        Juho<br>
+        Hello<br>
+    </div>
+    <input type="button" id="btn" value="창 열기"/>
   </body>
 </html>
