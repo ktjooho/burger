@@ -44,7 +44,13 @@
                                 <input class="btn btn-success btn-sm" type="submit" value="login" />
                             </center>
                         </p>
-                        <input type="hidden" name="next" value="{{ next }}"/>
+                        {%  if next %}
+                            <p>Test Defined!</p>
+                        {% else %}
+                            <p>Test not defiend!</p>
+                        {% endif %}
+                        <!--<input type="hidden" name="intro" value="{% url 'angus:intro' %}"/>-->
+                        <!--<input type="hidden" name="index" value="{% url 'angus:index' %}"/>-->
                     </form>
                 </div>
             </div>

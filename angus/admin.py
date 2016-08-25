@@ -1,8 +1,9 @@
 from django.contrib import admin
-from .models import  User
+from .models import UserProfile,GuestBook
 
 # Register your models here.
 
+"""
 class UserInline(admin.TabularInline):
     model = User
     extra = 2
@@ -15,3 +16,7 @@ class UserAdmin(admin.ModelAdmin):
     list_display = ('user_id','password','e_mail','grade','registration_time')
 
 admin.site.register(User)
+"""
+admin.site.register(UserProfile)
+admin.site.register(GuestBook)
+

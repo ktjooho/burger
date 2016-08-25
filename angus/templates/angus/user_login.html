@@ -1,0 +1,27 @@
+
+<!DOCTYPE html>
+<html>
+    <head>
+        <!-- Is anyone getting tired of repeatedly entering the header over and over?? -->
+        <title>Angus</title>
+    </head>
+
+    <body>
+    {% if form.errors %}
+        <p>Your username and password didn't match. Please try again.</p>
+    {% endif %}
+        <h1>Login to Angus</h1>
+
+        <form id="login_form" method="post" action="{% url 'angus:login' %}">
+            {% csrf_token %}
+            Username: <input type="text" name="username" value="" size="50" />
+            <br />
+            Password: <input type="password" name="password" value="" size="50" />
+            <br />
+            <input type="submit" value="submit" />
+            <input type="hidden" name="next" value="{{ next }}" />
+        </form>
+        <li><a href="{%  url 'angus:register' %} ">register membership</a></li>
+
+    </body>
+</html>

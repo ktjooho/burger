@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>GuestBook</title>
+</head>
+<body>
+    <h1>Please write nice thing for host.</h1>
+    <table>Angus:<string>write message</string>
+     <form id="guest_form" method="post" action="{% url 'angus:guestbook' %}" enctype="multipart/form-data">
+         {% csrf_token %}
+    <tr>
+        <td>
+            {{ guestbook_form.author.label }}
+        </td>
+
+        {% if is_login %}
+            <td>
+                {{ user.username }}
+            </td>
+            {% else %}
+            <td>
+                {{ guestbook_form.author }}
+            </td>
+            <td>
+                <a href="{% url 'angus:login' %}?next={{ request.path }}"><ul>Login</ul></a>
+            </td>
+        {% endif %}
+
+
+    </tr>
+    <tr>
+        <td>
+            {{  guestbook_form.content.label }}
+        </td>
+        <td>
+            {{ guestbook_form.content }}
+        </td>
+    </tr>
+     <!--
+    <tr>
+        <td>
+            {{ guestbook_form.ip_address.label}}
+        </td>
+        <td>
+            {{  guestbook_form.ip_address }}
+        </td>
+    </tr>
+    -->
+    <!--{{ guestbook_form.as_table }}-->
+         <td>
+    <input type="submit" name="submit" value="register" />
+         </td>
+
+    </table>
+    </form>
+</body>
+</html>

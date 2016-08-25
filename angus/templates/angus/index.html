@@ -55,6 +55,7 @@
                     {% else %}
                         <li><a href="{%  url 'angus:login' %}" data-role="button" data-inline="true" data-rel="dialog" data-transition="pop">Login</a></li>
                     {%  endif %}
+                    <li><a href="{% url 'angus:guestbook' %}" data-role="button" data-inline="true" data-rel="dialog" data-transition="pop">Guestbook</a> </li>
                 </ul>
               </nav>
             </div>
